@@ -1,0 +1,26 @@
+{
+  "name": "hello-world-lambda",
+  "version": "1.0.0",
+  "description": "Lambda function with hello world",
+  "main": "index.js",
+  "author": "Jelani Jackson",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "./node_modules/.bin/rimraf ./build && ./node_modules/.bin/tsc && yarn run postBuild",
+    "postBuild": "ncp ./node_modules/ ./build/node_modules && yarn run zip",
+    "zip": "./node_modules/.bin/cross-zip ./build/ hello-world-lambda.zip "
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.62",
+    "@types/node": "^14.11.1",
+    "cross-zip-cli": "^1.0.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0-pre.62",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  }
+}

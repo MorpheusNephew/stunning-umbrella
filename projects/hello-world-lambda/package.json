@@ -9,7 +9,11 @@
   "scripts": {
     "build": "./node_modules/.bin/rimraf ./build && ./node_modules/.bin/tsc && yarn run postBuild",
     "postBuild": "ncp ./node_modules/ ./build/node_modules && yarn run zip",
-    "zip": "./node_modules/.bin/cross-zip ./build/ hello-world-lambda.zip "
+    "zip": "./node_modules/.bin/cross-zip ./build/ hello-world-lambda.zip ",
+    "buildApiGateway": "yarn run build && terraform apply",
+    "buildApiGatewayWithoutApproval": "yarn run buildApiGateway -auto-approve",
+    "destroyApiGateway": "terraform destroy",
+    "destroyApiGatewayWithoutApproval": "yarn run destroyApiGateway -auto-approve"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.62",

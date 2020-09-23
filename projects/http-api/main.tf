@@ -64,3 +64,7 @@ resource "aws_lambda_permission" "allow_apigateway" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.snazzy_http_api.execution_arn}/*"
 }
+
+output "GatewayUrl" {
+  value = aws_apigatewayv2_api.snazzy_http_api.api_endpoint
+}

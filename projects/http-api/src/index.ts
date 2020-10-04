@@ -26,5 +26,5 @@ exports.handler = async (event: any, context: Context) => {
 };
 
 if (process.env.NODE_ENV !== "production") {
-  app.listen(process.env.NODE_PORT);
+  app.listen(process.env.NODE_PORT ?? 3000);
 }

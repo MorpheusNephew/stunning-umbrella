@@ -8,3 +8,4 @@ Checkout the [projects](./projects) folder for what I've come up with so far.
 
 - [Terraform](https://www.terraform.io/downloads.html)
 - An [AWS Account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
+- [Yarn](https://yarnpkg.com/)

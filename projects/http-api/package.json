@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "./node_modules/.bin/rimraf ./build && ./node_modules/.bin/tsc && yarn run postBuild",
+    "start": "ts-node-dev src/index.ts",
+    "build": "rimraf ./build && tsc && yarn run postBuild",
     "postBuild": "ncp ./node_modules/ ./build/node_modules && yarn run zip",
-    "zip": "./node_modules/.bin/cross-zip ./build/ http-api-backend.zip",
+    "zip": "cross-zip ./build/ http-api-backend.zip",
     "buildApiGateway": "yarn run build && terraform apply",
     "buildApiGatewayWithoutApproval": "yarn run buildApiGateway -auto-approve",
     "destroyApiGateway": "terraform destroy",

@@ -1,7 +1,10 @@
+require("dotenv").config();
+
 import { Context } from "aws-lambda";
 import Koa from "koa";
-import Router from "@koa/router";
 import ServerlessHttp from "serverless-http";
+
+import { router } from "./routers";
 
 const app = new Koa();
 
@@ -14,16 +17,6 @@ app.use(async (ctx, next) => {
   await next();
 });
 
-const router = new Router();
-
-router.get("/", async (ctx) => {
-  ctx.body = "This is a GET";
-});
-
-router.post("/", async (ctx) => {
-  ctx.body = "This is a POST";
-});
-
 app.use(router.routes());
 
 const handler = ServerlessHttp(app);
@@ -31,3 +24,7 @@ const handler = ServerlessHttp(app);
 exports.handler = async (event: any, context: Context) => {
   return await handler(event, context);
 };
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(process.env.NODE_PORT);
+}

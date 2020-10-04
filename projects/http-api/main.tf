@@ -76,6 +76,11 @@ resource "aws_lambda_function" "backend" {
   runtime          = "nodejs12.x"
   source_code_hash = filebase64sha256(local.lambdaZipFile)
   filename         = local.lambdaZipFile
+  environment {
+    variables = {
+      "NODE_ENV" = "production"
+    }
+  }
 }
 
 # Creating API Gateway v2

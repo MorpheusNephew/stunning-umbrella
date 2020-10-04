@@ -5,6 +5,15 @@ import ServerlessHttp from "serverless-http";
 
 const app = new Koa();
 
+app.use(async (ctx, next) => {
+  if (ctx.path === "/favicon.ico") {
+    console.log("returning due to favicon.ico request");
+    return;
+  }
+
+  await next();
+});
+
 const router = new Router();
 
 router.get("/", async (ctx) => {

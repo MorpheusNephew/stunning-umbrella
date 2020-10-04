@@ -1,9 +1,18 @@
-@apiId = your-app-id
+@apiId = your-api-id
 @region = your-region
-@apiGatewayUrl = https://{{apiId}}.execute-api.{{region}}.amazonaws.com/
+@apiGatewayUrl = https://{{apiId}}.execute-api.{{region}}.amazonaws.com/api/v1
 
-### Get
-GET {{apiGatewayUrl}}
+@usersEndpoint = {{apiGatewayUrl}}/users
+@postsEndpoint = {{apiGatewayUrl}}/posts
 
-### Post
-POST {{apiGatewayUrl}}
+### Get all users
+GET {{usersEndpoint}}
+
+### Get user
+GET {{usersEndpoint}}/first-user
+
+### Get all posts
+GET {{postsEndpoint}}
+
+### Get post
+GET {{postsEndpoint}}/first-post

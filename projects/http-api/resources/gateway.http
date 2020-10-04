@@ -1,0 +1,9 @@
+@apiId = your-app-id
+@region = your-region
+@apiGatewayUrl = https://{{apiId}}.execute-api.{{region}}.amazonaws.com/
+
+### Get
+GET {{apiGatewayUrl}}
+
+### Post
+POST {{apiGatewayUrl}}

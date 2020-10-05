@@ -4,12 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "build": "next build && next export && yarn zip",
+    "start": "next start",
+    "zip": "cross-zip ./out/ app-with-auth-client.zip"
   },
   "dependencies": {
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "cross-zip-cli": "^1.0.0"
   }
 }
